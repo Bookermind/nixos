@@ -15,7 +15,7 @@
 
     # Time settings
     time.timeZone = "Europe/London"; # Set your timezone.
-    il8n.defaultLocale = "en_GB.UTF-8"; # Set your locale.
+    i18n.defaultLocale = "en_GB.UTF-8"; # Set your locale.
     # Enable the X11 windowing system.
     services.xserver = {
         enable = true;
@@ -25,6 +25,7 @@
     #Define User Accounts
     users.users.simon = {
         isNormalUser = true;
+        hashedPassword = "$y$j9T$ozspdfWV7iOjWN0Bw6MrW1$sPWIDwrOoifkFQn8W/Qa84zcO1d7pnQyhPbBU6Tn2k5";
         extraGroups = [ "wheel" ]; # Add user to wheel.
         packages = with pkgs; [
             tree
