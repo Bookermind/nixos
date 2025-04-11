@@ -1,1 +1,1 @@
-# nixos
+# Respository of nixos configurations
