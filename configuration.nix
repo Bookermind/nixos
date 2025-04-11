@@ -5,6 +5,12 @@
         # Include the results of the hardware scan.
         ./hardware-configuration.nix
     ];
+
+    #Enable Flakes and non-free software
+    nix.config.allowUnfree = true;
+    nixpkgs.config.allowUnfree = true;  
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
     #Bootloader settings
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
