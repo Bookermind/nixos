@@ -1,10 +1,11 @@
-{config, lib, pkgs, ...}:
+{config, lib, pkgs, inputs, ...}:
 
 {
     imports = [
         ./hardware-configuration.nix
-        ./users/main-user.nix
+        ../users/main-user.nix
         ./packages.nix
+        inputs.home-manager.nixosModules.default
     ];
 
     #Enable Flakes
@@ -21,12 +22,13 @@
     # Time settings
     time.timeZone = "Europe/London"; # Set your timezone.
     i18n.defaultLocale = "en_GB.UTF-8"; # Set your locale.
+    console.useXkbConfig = true;
     # Enable the X11 windowing system.
-#    services.xserver = {
-#        enable = true;
-#        windowManager.qtile.enable = true; # Enable the Qtile window manager.
-#        xkb.layout = "gb"; # Set the keyboard layout to UK.
-#    };
+    services.xserver = {
+        enable = true;
+        windowManager.qtile.enable = true; # Enable the Qtile window manager.
+        xkb.layout = "gb"; # Set the keyboard layout to UK.
+    };
 
     main-user.enable = true;
     main-user.userName = "simon";
