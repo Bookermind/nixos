@@ -1,5 +1,10 @@
 {config, lib, pkgs, inputs, ...}:
-
+let
+    mUserEnable = true;
+    mUserName = "simon";
+    mUserFullname = "Simon Booker";
+    mUserShell = pkgs.zsh;
+in
 {
     imports = [
         /etc/nixos/hardware-configuration.nix
@@ -31,14 +36,14 @@
     };
 
     #Define main user details passed into the mainuser function
-    main-user.enable = true;
-    main-user.userName = "simon";
-    main-user.fullname = "Simon Booker";
-    main-user.shell = pkgs.zsh; # Set the shell to Zsh.
+    main-user.enable = mUserEnable;
+    main-user.userName = mUserName;
+    main-user.fullname = mUserFullname;
+    main-user.shell = mUserShell;
     home-manager = {
         extraSpecialArgs = {inherit inputs;};
         users = {
-            "${main-user.userName}" = import ./home.nix;
+            "${mUserName}" = import ./home.nix;
         };
     };
     
