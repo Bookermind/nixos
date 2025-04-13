@@ -11,7 +11,7 @@ in
                 Full name of the user.
             '';
         };
-        shell = libMkOption {
+        shell = lib.mkOption {
             default = pkgs.zsh;
             description = ''
                 Shell for the user.
@@ -27,10 +27,10 @@ in
     config = lib.mkIf cfg.enable {
         users.users.${cfg.userName} = {
             isNormalUser = true;
-            description = ${cfg.fullname};
+            description = cfg.fullname;
             hashedPassword = "$y$j9T$ozspdfWV7iOjWN0Bw6MrW1$sPWIDwrOoifkFQn8W/Qa84zcO1d7pnQyhPbBU6Tn2k5";
             extraGroups = [ "wheel" ]; # Add user to wheel.
-            shell = ${cfg.shell};
+            shell = cfg.shell;
         };
     };
 }

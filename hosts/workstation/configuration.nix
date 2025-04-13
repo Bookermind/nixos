@@ -7,7 +7,7 @@ let
 in
 {
     imports = [
-        /etc/nixos/hardware-configuration.nix
+        ./hardware-configuration.nix
         ../../users/main-user.nix
         ../../modules/nixos/packages.nix
         inputs.home-manager.nixosModules.default
@@ -40,6 +40,8 @@ in
     main-user.userName = mUserName;
     main-user.fullname = mUserFullname;
     main-user.shell = mUserShell;
+    user.enable = mUserEnable;
+    user.userName = mUserName;
     home-manager = {
         extraSpecialArgs = {inherit inputs;};
         users = {
