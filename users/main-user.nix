@@ -5,7 +5,18 @@ in
 {
     options.main-user = {
         enable = lib.mkEnableOption "Enable user module";
-        
+        fullname = lib.mkOption {
+            default = "Main User";
+            description = ''
+                Full name of the user.
+            '';
+        };
+        shell = libMkOption {
+            default = pkgs.zsh;
+            description = ''
+                Shell for the user.
+            '';
+        };
         userName = lib.mkOption {
             default = "mainuser";
             description = ''
@@ -16,13 +27,10 @@ in
     config = lib.mkIf cfg.enable {
         users.users.${cfg.userName} = {
             isNormalUser = true;
-            description = "Main User";
+            description = ${cfg.fullname};
             hashedPassword = "$y$j9T$ozspdfWV7iOjWN0Bw6MrW1$sPWIDwrOoifkFQn8W/Qa84zcO1d7pnQyhPbBU6Tn2k5";
             extraGroups = [ "wheel" ]; # Add user to wheel.
-            shell = pkgs.zsh;
-            packages = with pkgs; [
-                zsh
-            ];
+            shell = ${cfg.shell};
         };
     };
 }

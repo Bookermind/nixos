@@ -8,5 +8,6 @@
         git
         neovim
         alacritty
+        zsh
     ];
 }

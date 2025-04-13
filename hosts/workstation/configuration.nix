@@ -2,9 +2,9 @@
 
 {
     imports = [
-        ./hardware-configuration.nix
-        ../users/main-user.nix
-        ./packages.nix
+        /etc/nixos/hardware-configuration.nix
+        ../../users/main-user.nix
+        ../../modules/nixos/packages.nix
         inputs.home-manager.nixosModules.default
     ];
 
@@ -30,25 +30,17 @@
         xkb.layout = "gb"; # Set the keyboard layout to UK.
     };
 
+    #Define main user details passed into the mainuser function
     main-user.enable = true;
     main-user.userName = "simon";
-#    #Define User Accounts
-#    users.users.simon = {
-#        isNormalUser = true;
-#        hashedPassword = "$y$j9T$ozspdfWV7iOjWN0Bw6MrW1$sPWIDwrOoifkFQn8W/Qa84zcO1d7pnQyhPbBU6Tn2k5";
-#        extraGroups = [ "wheel" ]; # Add user to wheel.
-#        packages = with pkgs; [
-#            tree
-#        ];
-#    };
-
-    #Define System Packages
-#    environment.systemPackages = with pkgs; [
-#        wget
-#        vim
-#        git
-#        neovim
-#        alacritty
-#    ];
+    main-user.fullname = "Simon Booker";
+    main-user.shell = pkgs.zsh; # Set the shell to Zsh.
+    home-manager = {
+        extraSpecialArgs = {inherit inputs;};
+        users = {
+            "${main-user.userName}" = import ./home.nix;
+        };
+    };
+    
     system.stateVersion = "24.11";
 }

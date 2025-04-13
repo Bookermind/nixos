@@ -17,7 +17,7 @@
         nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
             specialArgs = {inherit inputs;};
             modules = [
-                ./workstation/configuration.nix
+                ./hosts/workstation/configuration.nix
                 inputs.home-manager.nixosModules.default
             ];
         };
