@@ -6,13 +6,13 @@
   };
   home.file = {
     ".zshrc" = {
-      source = ../../dotfiles/zshrc;
+      source = ../../dotfiles/zsh/zshrc;
       target = ".zshrc";
     };
   };
   home.file = {
     "p10k.zsh" = {
-      source = ../../dotfiles/p10k.zsh;
+      source = ../../dotfiles/zsh/p10k.zsh;
       target = ".p10k.zsh";
     };
   };
