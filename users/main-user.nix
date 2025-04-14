@@ -31,6 +31,7 @@ in
             hashedPassword = "$y$j9T$ozspdfWV7iOjWN0Bw6MrW1$sPWIDwrOoifkFQn8W/Qa84zcO1d7pnQyhPbBU6Tn2k5";
             extraGroups = [ "wheel" ]; # Add user to wheel.
             shell = cfg.shell;
+            ignoreShellProgramCheck = true;
         };
     };
 }

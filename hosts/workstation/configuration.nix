@@ -42,6 +42,7 @@ in
     main-user.shell = mUserShell;
     home-manager = {
         extraSpecialArgs = {inherit inputs;};
+        backupFileExtension = ".bak";
         users = {
             "${mUserName}" = import ./home.nix;
         };

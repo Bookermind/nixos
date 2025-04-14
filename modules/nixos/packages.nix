@@ -9,5 +9,8 @@
         neovim
         alacritty
         zsh
+        nerd-fonts.jetbrains-mono
+        zoxide
+        fzf
     ];
 }
