@@ -10,7 +10,6 @@ in
         ./hardware-configuration.nix
         ../../users/main-user.nix
         ../../modules/nixos/packages.nix
-        ./home.nix
         inputs.home-manager.nixosModules.default
     ];
 
