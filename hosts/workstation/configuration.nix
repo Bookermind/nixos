@@ -43,6 +43,12 @@ in
     main-user.shell = mUserShell;
     user.enable = mUserEnable;
     user.userName = mUserName;
+    home-manager = {
+        extraSpecialArgs = {inherit inputs;};
+        users = {
+            "${mUserName}" = import ./home.nix;
+        };
+    };
     
     system.stateVersion = "24.11";
 }
