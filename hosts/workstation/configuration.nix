@@ -10,6 +10,7 @@ in
         ./hardware-configuration.nix
         ../../users/main-user.nix
         ../../modules/nixos/packages.nix
+        ./home.nix
         inputs.home-manager.nixosModules.default
     ];
 
@@ -35,19 +36,13 @@ in
         xkb.layout = "gb"; # Set the keyboard layout to UK.
     };
 
-    #Define main user details passed into the mainuser function
+    #Define main user details passed into the mainuser function and home manager
     main-user.enable = mUserEnable;
     main-user.userName = mUserName;
     main-user.fullname = mUserFullname;
     main-user.shell = mUserShell;
     user.enable = mUserEnable;
     user.userName = mUserName;
-    home-manager = {
-        extraSpecialArgs = {inherit inputs;};
-        users = {
-            "${mUserName}" = import ./home.nix;
-        };
-    };
     
     system.stateVersion = "24.11";
 }
