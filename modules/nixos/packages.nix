@@ -10,5 +10,4 @@
         alacritty
         zsh
     ];
-    programs.zsh.enable = true;  # Enable Zsh shell
 }

@@ -40,8 +40,6 @@ in
     main-user.userName = mUserName;
     main-user.fullname = mUserFullname;
     main-user.shell = mUserShell;
-    user.enable = mUserEnable;
-    user.userName = mUserName;
     home-manager = {
         extraSpecialArgs = {inherit inputs;};
         users = {
