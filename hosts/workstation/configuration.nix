@@ -10,6 +10,7 @@ in
         ./hardware-configuration.nix
         ../../users/main-user.nix
         ../../modules/nixos/packages.nix
+        ./fonts.nix
         inputs.home-manager.nixosModules.default
     ];
 
@@ -47,6 +48,6 @@ in
             "${mUserName}" = import ./home.nix;
         };
     };
-    
+        
     system.stateVersion = "24.11";
 }
