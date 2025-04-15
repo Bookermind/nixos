@@ -3,6 +3,7 @@
 {
         imports = [
                 ../../modules/home-manager/zsh.nix
+                ../../modules/home-manager/kitty.nix
                 ../../modules/home-manager/alacritty.nix
         ];
         #TODO : Need to make this use a variable rather than hard coding
