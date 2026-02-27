@@ -52,7 +52,7 @@
     nano
     git
     wget
-    foot
+    alacritty
   ];
 
   fonts.packages = with pkgs; [
