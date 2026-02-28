@@ -1,11 +1,9 @@
-{ inputs, lib, config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    inputs.dms.homeModules.dank-material-shell
-    inputs.niri.nixosModules.niri
-    inputs.dms.homeModules.niri
+    inputs.home-manager.nixosModules.default
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -16,18 +14,12 @@
 
   time.timeZone = "Europe/London";
 
-  programs.dank-material-shell.greeter = {
-    enable = true;
-    compositor.name = "niri";
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "simon" = import ./home.nix;
+    };
   };
-
-  #services.displayManager.ly.enable = true;
-  #services.xserver = {
-  #  enable = true;
-  #  autoRepeatDelay = 200;
-  #  autoRepeatInterval = 35;
-  #  windowManager.qtile.enable = true;
-  #};
 
   users.users.simon = {
     isNormalUser = true;
@@ -38,15 +30,6 @@
   };
 
   programs.firefox.enable = true;
-  programs.dank-material-shell = {
-    enable = true;
-    niri = {
-      enableKeybinds = true;
-      enableSpawn = true;
-    };
-    enableSystemMonitoring = true;
-    dgop.package = inputs.dgop.packages.${pkgs.system}.default;
-  };
 
   environment.systemPackages = with pkgs; [
     nano
