@@ -10,7 +10,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "simon-desktop";
+  networking.hostName = "simon-test";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/London";

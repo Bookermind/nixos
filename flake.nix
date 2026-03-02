@@ -15,10 +15,10 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in
   {
-    nixosConfigurations.simon-desktop = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.simon-test = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
-        ./configuration.nix
+        ./systems/simon-test/configuration.nix
         inputs.home-manager.nixosModules.default
       ];
     };
