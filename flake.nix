@@ -24,6 +24,7 @@
       modules = [
         ./systems/simon-test/configuration.nix
         inputs.home-manager.nixosModules.default
+        inputs.disko.nixosModules.disko
       ];
     };
   };
