@@ -32,7 +32,7 @@ git clone https://github.com/Bookermind.nixos.git
 Navigate to the clone repository (assumed here to be relative to home) and run the following commands:   
 ```bash
 cd ~/nixos/systems/simon-test
-sudo nix --experimental-features "nix-command" "flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount disko-config.nix
+sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount disko-config.nix
 ```   
 *NOTE* This will completely destroy and existing partitions on the disk. Ensure to have everything backed up before proceeding!   
 ## Installation
