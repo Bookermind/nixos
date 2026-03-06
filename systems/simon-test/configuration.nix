@@ -11,7 +11,7 @@
     initrd.systemd.enable = true;
     loader = {
       systemd-boot.enable = true;
-      loader.efi.canTouchEfiVariables = true;
+      efi.canTouchEfiVariables = true;
       timeout =0;
     };
     plymouth = {
@@ -31,21 +31,26 @@
       "systemd.show_status=auto"
     ];
   };
-
-  networking.hostName = "simon-test";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostname = "simon-test";
+    networkmanager.enable = true;
+  };
 
   services = {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
     gnome = {
-      core-apps.enable = true;
+      core-apps.enable = false;
       core-developer-tools.enable = false;
       games.enable = false;
+    };
+    xserver = {
+      xkb.layout = "uk";
     };
   };
 
   time.timeZone = "Europe/London";
+  i18n.consoleKeyMap = "uk";
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
