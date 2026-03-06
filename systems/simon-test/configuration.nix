@@ -32,7 +32,7 @@
     ];
   };
   networking = {
-    hostname = "simon-test";
+    hostName = "simon-test";
     networkmanager.enable = true;
   };
 
@@ -40,17 +40,18 @@
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
     gnome = {
-      core-apps.enable = false;
+      core-apps.enable = true;
       core-developer-tools.enable = false;
       games.enable = false;
     };
     xserver = {
       xkb.layout = "uk";
     };
+    sysprof.enable = true;
   };
 
   time.timeZone = "Europe/London";
-  i18n.consoleKeyMap = "uk";
+  console.keyMap = "uk";
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
@@ -72,7 +73,7 @@
     git
     wget
     curl
-
+    sysprof
   ];
 
   fonts.packages = with pkgs; [
