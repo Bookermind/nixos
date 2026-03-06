@@ -20,7 +20,7 @@ sudo loadkeys uk         # Swaps the keyboard layout to UK
 lsblk -f            # Lists block devices with filesystem information
 ```
 
-The name of the main disk drive will be returned by the ```lsblk``` command. You may need to alter the disk-config.nix file to match the name of the main disk drive.   
+The name of the main disk drive will be returned by the ```lsblk``` command. You may need to alter the disko-config.nix file to match the name of the main disk drive.   
 For example in simon-test ensure that the disk is named ```/dev/vda``` (a virtio block device) rather than ```/dev/sda``` (a virtual sata drive).   
 ## Partitioning
 Clone this repository to the live nix ISO:   

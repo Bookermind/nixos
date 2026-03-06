@@ -11,4 +11,16 @@
       hw = "echo Hello World!";
     };
   };
+  dconf.enable = true;
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      accent-color = "blue";
+    };
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = [
+        pkgs.gnomeExtensions.blur-my-shell
+      ];
+    };
+  };
 }

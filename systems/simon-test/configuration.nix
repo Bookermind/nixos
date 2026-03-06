@@ -7,11 +7,43 @@
     inputs.home-manager.nixosModules.default
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    initrd.systemd.enable = true;
+    loader = {
+      systemd-boot.enable = true;
+      loader.efi.canTouchEfiVariables = true;
+      timeout =0;
+    };
+    plymouth = {
+      enable = true;
+      theme = "rings";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "rings" ];
+        })
+      ];
+    };
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "udev.log_level=3"
+      "systemd.show_status=auto"
+    ];
+  };
 
   networking.hostName = "simon-test";
   networking.networkmanager.enable = true;
+
+  services = {
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+    gnome = {
+      core-apps.enable = true;
+      core-developer-tools.enable = false;
+      games.enable = false;
+    };
+  };
 
   time.timeZone = "Europe/London";
 
@@ -30,13 +62,12 @@
     ];
   };
 
-  programs.firefox.enable = true;
-
   environment.systemPackages = with pkgs; [
     nano
     git
     wget
-    alacritty
+    curl
+
   ];
 
   fonts.packages = with pkgs; [

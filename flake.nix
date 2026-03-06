@@ -27,5 +27,13 @@
         inputs.disko.nixosModules.disko
       ];
     };
+    nixosConfigurations.simon-desktop = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./systems/simon-desktop/configuration.nix
+        inputs.home-manager.nixosModules.default
+        inputs.disko.nixosModules.disko
+      ];
+    };
   };
 }
