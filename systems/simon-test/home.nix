@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home.username = "simon";
@@ -25,7 +25,9 @@
       ];
     };
     "org/gnome/desktop/input-sources" = {
-      sources = [ "uk" ];
+      sources = [
+        (lib.gvariant.mkTuple ["xkb" "gb"])
+      ];
     };
   };
 }

@@ -16,12 +16,12 @@
     };
     plymouth = {
       enable = true;
-      theme = "rings";
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" ];
-        })
-      ];
+#      theme = "rings";
+#      themePackages = with pkgs; [
+#        (adi1090x-plymouth-themes.override {
+#          selected_themes = [ "rings" ];
+#        })
+#      ];
     };
     consoleLogLevel = 3;
     initrd.verbose = false;
@@ -72,6 +72,8 @@
       wget
       curl
       sysprof
+      gnomeExtensions.blur-my-shell
+      gnomeExtensions.appindicator
     ];
     gnome.excludePackages = with pkgs; [
       gnome-tour
