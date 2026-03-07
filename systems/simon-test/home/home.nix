@@ -3,7 +3,15 @@
 {
   home.username = "simon";
   home.homeDirectory = "/home/simon";
-  programs.git.enable = true;
+  home.packages = with pkgs; [
+    tree
+    inputs.zen-browser.packages."${system}".specific
+  ];
+  programs.git = {
+    enable = true;
+    userName = "simon booker";
+    userEmail = "simon.booker@zoho.eu";
+  };
   home.stateVersion = "25.11";
   programs.bash = {
     enable = true;
@@ -22,6 +30,7 @@
       enabled-extensions = [
         pkgs.gnomeExtensions.blur-my-shell.extensionUuid
         pkgs.gnomeExtensions.appindicator.extensionUuid
+        pkgs.gnomeExtensions.paperwm.extensionUuid
       ];
     };
     "org/gnome/desktop/input-sources" = {

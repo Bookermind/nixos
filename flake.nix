@@ -11,6 +11,14 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ...}@inputs:
@@ -25,6 +33,7 @@
         ./systems/simon-test/configuration.nix
         inputs.home-manager.nixosModules.default
         inputs.disko.nixosModules.disko
+        inputs.stylix.nixosModules.stylix
       ];
     };
     nixosConfigurations.simon-desktop = nixpkgs.lib.nixosSystem {
@@ -33,6 +42,7 @@
         ./systems/simon-desktop/configuration.nix
         inputs.home-manager.nixosModules.default
         inputs.disko.nixosModules.disko
+        inputs.stylix.nixosModules.stylix
       ];
     };
   };

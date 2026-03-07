@@ -51,30 +51,19 @@
   console.keyMap = "uk";
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs; system = "x86_64-linux"; };
     users = {
-      "simon" = import ./home.nix;
+      "simon" = import ./home/home.nix;
     };
   };
 
   users.users.simon = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    packages = with pkgs; [
-      tree
-    ];
   };
 
   environment = {
-    systemPackages = with pkgs; [
-      nano
-      git
-      wget
-      curl
-      sysprof
-      gnomeExtensions.blur-my-shell
-      gnomeExtensions.appindicator
-    ];
+    systemPackages = with pkgs; import ./packages.nix { inherit pkgs; };
     gnome.excludePackages = with pkgs; [
       gnome-tour
       cheese
