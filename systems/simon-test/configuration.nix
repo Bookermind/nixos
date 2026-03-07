@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     inputs.home-manager.nixosModules.default
+    inputs.stylix.nixosModules.stylix
   ];
 
   boot = {
@@ -56,12 +57,13 @@
       "simon" = import ./home/home.nix;
     };
   };
-  stylix = import ./stylix.nix;
 
   users.users.simon = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
   };
+
+  stylix = import ./home/stylix.nix;
 
   environment = {
     systemPackages = with pkgs; import ./packages.nix { inherit pkgs; };
