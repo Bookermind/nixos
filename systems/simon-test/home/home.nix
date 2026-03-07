@@ -5,7 +5,7 @@
   home.homeDirectory = "/home/simon";
   home.packages = with pkgs; [
     tree
-    inputs.zen-browser.packages."${system}".specific
+    inputs.zen-browser.packages."${system}".twilight-official
   ];
   programs.git = {
     enable = true;
