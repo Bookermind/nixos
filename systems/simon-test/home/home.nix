@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, system, ... }:
 
 {
   home.username = "simon";
@@ -9,8 +9,12 @@
   ];
   programs.git = {
     enable = true;
-    userName = "simon booker";
-    userEmail = "simon.booker@zoho.eu";
+    settings = {
+      user = {
+        name = "Simon Booker";
+        email = "simon.booker@zoho.eu";
+      };
+    };
   };
   home.stateVersion = "25.11";
   programs.bash = {
