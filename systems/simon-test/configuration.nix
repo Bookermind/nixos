@@ -53,6 +53,7 @@
 
   stylix.enable = true;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
+  stylix.image = ../assets/background.png;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; system = "x86_64-linux"; };

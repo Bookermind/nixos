@@ -25,10 +25,8 @@
   };
   dconf.enable = true;
   dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-      accent-color = "purple";
-    };
+    "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    "org/gnome/desktop/interface".accent-color = "purple";
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = [
