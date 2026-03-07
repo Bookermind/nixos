@@ -51,7 +51,8 @@
   time.timeZone = "Europe/London";
   console.keyMap = "uk";
 
-  stylix = import ./home/stylix.nix;
+  stylix.enable = true;
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; system = "x86_64-linux"; };
