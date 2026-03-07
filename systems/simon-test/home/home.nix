@@ -43,5 +43,4 @@
       ];
     };
   };
-  stylix = import ./stylix.nix;
 }

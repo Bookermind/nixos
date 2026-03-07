@@ -56,6 +56,7 @@
       "simon" = import ./home/home.nix;
     };
   };
+  stylix = import ./stylix.nix;
 
   users.users.simon = {
     isNormalUser = true;
