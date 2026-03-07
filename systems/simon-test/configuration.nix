@@ -44,9 +44,6 @@
       core-developer-tools.enable = false;
       games.enable = false;
     };
-    xserver = {
-      xkb.layout = "uk";
-    };
     sysprof.enable = true;
   };
 
@@ -68,13 +65,28 @@
     ];
   };
 
-  environment.systemPackages = with pkgs; [
-    nano
-    git
-    wget
-    curl
-    sysprof
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      nano
+      git
+      wget
+      curl
+      sysprof
+    ];
+    gnome.excludePackages = with pkgs; [
+      gnome-tour
+      cheese
+      epiphany
+      geary
+      totem
+      atomix
+      gnome-music
+      gnome-photos
+      hitori
+      iagno
+      tali
+    ];
+  };
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

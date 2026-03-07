@@ -14,13 +14,18 @@
   dconf.enable = true;
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      accent-color = "blue";
+      color-scheme = "prefer-dark";
+      accent-color = "purple";
     };
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = [
         pkgs.gnomeExtensions.blur-my-shell.extensionUuid
+        pkgs.gnomeExtensions.appindicator.extensionUuid
       ];
+    };
+    "org/gnome/desktop/input-sources" = {
+      sources = [ "uk" ];
     };
   };
 }
