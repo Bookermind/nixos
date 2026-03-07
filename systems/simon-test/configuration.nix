@@ -51,6 +51,8 @@
   time.timeZone = "Europe/London";
   console.keyMap = "uk";
 
+  stylix = import ./home/stylix.nix;
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; system = "x86_64-linux"; };
     users = {
@@ -62,8 +64,6 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
   };
-
-  stylix = import ./home/stylix.nix;
 
   environment = {
     systemPackages = with pkgs; import ./packages.nix { inherit pkgs; };
